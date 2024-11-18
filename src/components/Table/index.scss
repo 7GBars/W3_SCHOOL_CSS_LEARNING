@@ -1,0 +1,19 @@
+.my_table {
+  border-collapse: collapse;
+  width: 100%;
+  th {
+    border: 1px solid #ddd;
+    background-color: #04AA6D;
+    padding: 10px 5px;
+    text-align: left;
+    color: white;
+  }
+  tr:hover { background-color: #ddd; }
+  td {
+    padding: 10px;
+    text-align: center;
+    &:hover { background-color: red; }
+    cursor: pointer;
+  }
+
+}
