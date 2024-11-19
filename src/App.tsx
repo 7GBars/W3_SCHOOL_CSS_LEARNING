@@ -6,7 +6,7 @@ import {Table} from "./components/Table";
 function App() {
   return (
     <div className="App">
-      <Table/>
+      <Table width={'100%'} rowHeight={40}/>
 
     </div>
   );
