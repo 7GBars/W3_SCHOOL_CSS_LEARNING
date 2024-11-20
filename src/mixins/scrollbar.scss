@@ -1,0 +1,20 @@
+@mixin custom-scrollbar($thumb-color: #888, $track-color: #f1f1f1, $thumb-hover-color: #555, $width: 5px) {
+  // Для WebKit-браузеров
+  &::-webkit-scrollbar {
+    width: $width; // Ширина вертикального скролла
+    height: $width; // Высота горизонтального скролла
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color; // Цвет дорожки
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color; // Цвет бегунка
+    // Закругление углов бегунка
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $thumb-hover-color; // Цвет бегунка при наведении
+  }
+}

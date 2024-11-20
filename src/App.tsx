@@ -7,7 +7,14 @@ import {customers} from "./__mocks__/customers";
 function App() {
   return (
     <div className="App">
-      <Table width={'100%'} rowHeight={40} data={customers} columns={['CompanyName', 'City', 'Phone']} />
+
+      <Table
+        width={'100%'}
+        rowHeight={40}
+        data={customers}
+        columns={['CompanyName', 'City', 'Phone']}
+      />
+      <div></div>
 
     </div>
   );
