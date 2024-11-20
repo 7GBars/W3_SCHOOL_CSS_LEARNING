@@ -30,17 +30,27 @@ export const Table: FC<TTableProps> = memo(({rowHeight, width, data, columns}) =
     })
   }, data)
 
-  return ( <div className={'table-container'}>
-      <table className={'table-container__table'} style={{width}}>
-        <thead>
-        <tr>
-          {memoizedColumns}
-        </tr>
-        </thead>
-        <tbody>
-        {memoizedRows}
-        </tbody>
-      </table>
+  return ( <div className={'table-component'}>
+
+      <div className={'table-container'}>
+        <table className={'table-container__table'} style={{width}}>
+          <thead>
+          <tr>
+            {memoizedColumns}
+          </tr>
+          </thead>
+          <tbody>
+          {memoizedRows}
+          </tbody>
+        </table>
+      </div>
+
+
+      <div className={'navigation-container'}>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+      </div>
   </div>
   );
 })
