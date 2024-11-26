@@ -1,5 +1,4 @@
 import React, {useRef} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {Table} from "./components/Table";
 import {customers} from "./__mocks__/customers";
