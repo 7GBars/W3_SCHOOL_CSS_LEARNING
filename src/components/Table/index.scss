@@ -3,7 +3,7 @@
 $footerMinHeight: 40px;
 
 .table-component {
-  height: 300px;
+  height: 500px;
   .table-container {
     @include custom-scrollbar();
     height: calc(100% - #{$footerMinHeight});
@@ -16,19 +16,20 @@ $footerMinHeight: 40px;
         position: sticky;
         z-index: 2;
         top: 0;
-        th {
+        & th {
           border: 1px solid #ddd;
           background-color: #04AA6D;
           padding: 10px 5px;
-          text-align: left;
+          text-align: center;
           color: white;
         }
       }
       tbody {
         tr:hover { background-color: #ddd; }
-        td {
+        & td {
           padding: 10px;
-          text-align: center;
+          text-align: right;
+          vertical-align: top;
           &:hover { background-color: red; }
           cursor: pointer;
         }

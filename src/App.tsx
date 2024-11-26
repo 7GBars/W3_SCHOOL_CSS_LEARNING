@@ -10,7 +10,7 @@ function App() {
 
       <Table
         width={'100%'}
-        rowHeight={40}
+        rowHeight={70}
         data={customers}
         columns={['CompanyName', 'City', 'Phone']}
       />
