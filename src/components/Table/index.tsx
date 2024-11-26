@@ -2,26 +2,34 @@ import React, {FC, memo, useMemo} from 'react';
 import styled from 'styled-components';
 import './index.scss';
 
+type TRowConfig = {
+  height: number;
+  alignment: 'left' | 'right' | 'center';
+  verticalAlign: 'top' | 'middle' | 'bottom'
+}
 type TTableProps = {
-  width: number | string;
-  rowHeight: number;
   data: any[];
   columns: string[];
+
+  rowConfig: TRowConfig;
+  width: number | string;
 }
 
 // Создаем стилизованный компонент для строк таблицы за пределами функционального компонента
-const TableRow = styled.tr<{ rowHeight: number }>`
-  height: ${props => props.rowHeight}px;
+const TableRow = styled.tr<{rowConfig: TRowConfig}>`
+  height: ${({rowConfig: {height}}) => height}px;
+  text-align: ${({rowConfig: {alignment}}) => alignment};
+  vertical-align: ${({rowConfig: {verticalAlign}}) => verticalAlign};
 `;
 
-export const Table: FC<TTableProps> = memo(({rowHeight, width, data, columns}) => {
+export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) => {
   const memoizedColumns = useMemo(() => {
     return columns.map(c => <th>{c}</th>)
   }, [columns]);
 
   const memoizedRows = useMemo(() => {
     return data.map(rowData => {
-      return <TableRow rowHeight={rowHeight}>
+      return <TableRow rowConfig={rowConfig}>
         {columns.map(c => {
           console.log('rowData, ', rowData)
           return <td>{rowData[c]}</td>

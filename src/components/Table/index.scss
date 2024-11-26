@@ -28,8 +28,6 @@ $footerMinHeight: 40px;
         tr:hover { background-color: #ddd; }
         & td {
           padding: 10px;
-          text-align: right;
-          vertical-align: top;
           &:hover { background-color: red; }
           cursor: pointer;
         }
