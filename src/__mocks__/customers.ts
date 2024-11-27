@@ -1,4 +1,17 @@
-export const customers = [{
+type TCompany = {
+  ID: number;
+  CompanyName: string;
+  Address: string;
+  City: string;
+  State: string;
+  Zipcode: number;
+  Phone: string;
+  Fax: string;
+};
+
+export type TCompanyColumns = keyof TCompany;
+export const customers: Array<TCompany> = [
+  {
   ID: 1,
   CompanyName: 'Super Mart of the West',
   Address: '702 SW 8th Street',
@@ -107,3 +120,4 @@ export const customers = [{
   Phone: '(800) 445-6937',
   Fax: '(800) 445-6938',
 }];
+export const columns: Array<TCompanyColumns> = ['CompanyName', 'Address', 'City', 'Fax', 'State'];
