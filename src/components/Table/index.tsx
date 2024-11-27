@@ -20,6 +20,11 @@ const TableRow = styled.tr<{rowConfig: TRowConfig}>`
   height: ${({rowConfig: {height}}) => height}px;
   text-align: ${({rowConfig: {alignment}}) => alignment};
   vertical-align: ${({rowConfig: {verticalAlign}}) => verticalAlign};
+  &:nth-child(even) { background-color: #f2f2f2; }
+  &:hover { 
+    background-color: #ddd;
+    font-style: italic;
+  }
 `;
 
 export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) => {

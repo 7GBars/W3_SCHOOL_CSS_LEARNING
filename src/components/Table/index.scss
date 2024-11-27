@@ -25,11 +25,10 @@ $footerMinHeight: 40px;
         }
       }
       tbody {
-        tr:hover { background-color: #ddd; }
         & td {
           padding: 10px;
-          &:hover { background-color: red; }
           cursor: pointer;
+          border-bottom: 1px solid #ddd;
         }
       }
 
