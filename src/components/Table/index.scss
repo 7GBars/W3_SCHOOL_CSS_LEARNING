@@ -44,3 +44,12 @@ $footerMinHeight: 40px;
     gap: 20px;
   }
 }
+
+.draggable-header {
+  cursor: grab;
+  user-select: none;
+}
+
+.draggable-header:active {
+  cursor: grabbing;
+}
