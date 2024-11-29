@@ -1,6 +1,7 @@
-import React, {FC, memo, useCallback, useMemo, useRef, useState} from 'react';
+import React, { FC, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styled from 'styled-components';
 import './index.scss';
+
 
 type TRowConfig = {
   height: number;
@@ -29,84 +30,56 @@ const TableRow = styled.tr<{rowConfig: TRowConfig}>`
   &:nth-child(even) { background-color: #f2f2f2; }
   &:hover { 
     background-color: #ddd;
-    font-style: italic;
   }
 `;
 
 export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) => {
 
-  const [columnOrder, setColumnOrder] = useState(columns);
+  const [columnOrder, setColumnOrder] = useState<string[]>(columns);
   const [draggedColumn, setDraggedColumn] = useState<string | null>(null);
-  const isInsideDrop = useRef<boolean>(false);
+
 
   const tableRef = useRef<HTMLDivElement>(null);
+  const isOutside = useRef<boolean>(false);
 
 
 
-  const handleDragLeave = useCallback((e: React.DragEvent) => {
-    e.stopPropagation();
 
-    const relatedElement = e.relatedTarget as HTMLElement;
 
-    if(relatedElement === null) {return}
-    console.log(relatedElement)
-    if (relatedElement.tagName === TAG_NAME.TD) {
-      isInsideDrop.current = false;
-    } else if (relatedElement.tagName === TAG_NAME.TH) {
-      isInsideDrop.current = true;
-    } else {
-      console.log('e.relatedTarget ', e.relatedTarget )
+
+  useEffect(() => {
+    const handleDrop = (e: DragEvent) => {
+      const target = e.target as Node;
+      if (isOutside.current) {
+        console.log('target on drop', target);
+      } else {
+        columnOrder.length > 1 && setColumnOrder(cols => cols.filter(c => c !== draggedColumn))
+      }
+    };
+    const handleGlobalDragOver = (e: DragEvent) => {
+      e.preventDefault();
+      const target = e.target as Node;
+      if (tableRef.current?.contains(target)) {
+        isOutside.current = true;
+      } else {
+        isOutside.current = false;
+      }
+    };
+
+    window.addEventListener('drop', handleDrop);
+    window.addEventListener('dragover', handleGlobalDragOver);
+    return () => {
+      window.removeEventListener('drop', handleDrop);
+      window.addEventListener('dragover', handleGlobalDragOver);
     }
-    // Проверяем, действительно ли курсор покинул контейнер таблицы
-    // if (tableRef.current?.contains(e.relatedTarget as Node)) {
-    //   console.log('Drag left the table container');
-    //   isInsideDrop.current = false;
-    // } todo @bar - почему не работает
-  }, []);
+  }, [draggedColumn, columnOrder]); //todo а может не надо columnOrder
 
-  const handleDragStart = useCallback((column: string) => {
-    console.log('Drag started');
-    setDraggedColumn(column);
-  }, []);
 
-  const handleDragOver = useCallback((e: React.DragEvent) => {
-    e.preventDefault(); // Чтобы разрешить drop
-  }, []);
-
-  const handleDrop = useCallback(
-    (targetColumn: string) => {
-      if (!draggedColumn) return;
-      const newOrder = [...columnOrder];
-      const fromIndex = newOrder.indexOf(draggedColumn);
-      const toIndex = newOrder.indexOf(targetColumn);
-
-      newOrder.splice(fromIndex, 1);
-      newOrder.splice(toIndex, 0, draggedColumn);
-
-      setColumnOrder(newOrder);
-      console.log('Dropped on column:', targetColumn);
-    },
-    [draggedColumn, columnOrder]
-  );
-
-  const memoizedColumns = useMemo(() => {
-    return columnOrder.map(col => <th
-      key={col}
-      draggable
-      onDragStart={() => handleDragStart(col)}
-      onDragOver={handleDragOver}
-      onDrop={() => handleDrop(col)}
-      className="draggable-header"
-    >
-      {col}
-    </th>)
-  }, [columnOrder]);
 
   const memoizedRows = useMemo(() => {
     return data.map((rowData, index) => {
       return <TableRow rowConfig={rowConfig} key={index}>
         {columnOrder.map(c => {
-          console.log('rowData, ', rowData)
           return <td key={columnOrder.indexOf(c)}>{rowData[c]}</td>
         })}
       </TableRow>
@@ -114,15 +87,19 @@ export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) =
   }, [data, columnOrder])
 
 
+  const memoizedColumns = useMemo(() => {
+    return columnOrder.map(col => <th
+      key={col}
+      draggable
+      onDragStart={() => setDraggedColumn(col)}
+      className="draggable-header"
+    >
+      {col}
+    </th>)
+  }, [columnOrder]);
 
-
-  return ( <div className={'table-component'}>
-
-      <div
-        className={'table-container'}
-        onDragLeave={handleDragLeave}
-        ref={tableRef}
-      >
+  return ( <div ref={tableRef} className={`table-component`}>
+      <div className={'table-container'}>
         <table className={'table-container__table'} style={{width}}>
           <thead>
           <tr>
