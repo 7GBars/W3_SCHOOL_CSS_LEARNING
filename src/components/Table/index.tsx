@@ -43,9 +43,7 @@ export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) =
   const isOutside = useRef<boolean>(false);
 
 
-
-
-
+  console.log('render Table');
 
   useEffect(() => {
     const handleDrop = (e: DragEvent) => {
