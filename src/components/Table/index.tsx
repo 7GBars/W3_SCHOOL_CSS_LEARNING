@@ -10,7 +10,7 @@ const TableComponent = <T extends ObjectType,>({
   data, columns, rowConfig, width
 }: TTableProps<T>) => {
   const [columnOrder, setColumnOrder] = useState<TColumns<T>>(columns);
-  const [draggedColumnId, setDraggedColumnId] = useState<string | null>(null);
+  const [draggedColumnId, setDraggedColumnId] = useState<string | number | null>(null);
 
   const tableRef = useRef<HTMLDivElement>(null);
   const isOutside = useRef<boolean>(false);
