@@ -1,43 +1,16 @@
-import React, { FC, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import styled from 'styled-components';
+import React, {FC, memo, ReactNode, useEffect, useMemo, useRef, useState} from 'react';
+
+import {TableRow} from "./tableRow/TableRowStyled";
+import type { TTableProps, ObjectType, TColumns } from "./types";
+
 import './index.scss';
 
 
-type TRowConfig = {
-  height: number;
-  alignment: 'left' | 'right' | 'center';
-  verticalAlign: 'top' | 'middle' | 'bottom'
-}
-type TTableProps = {
-  data: any[];
-  columns: string[];
-
-  rowConfig: TRowConfig;
-  width: number | string;
-}
-
-enum TAG_NAME {
-  TD = 'TD',
-  TH = 'TH',
-  OTHER = 'OTHER'
-}
-
-// Создаем стилизованный компонент для строк таблицы за пределами функционального компонента
-const TableRow = styled.tr<{rowConfig: TRowConfig}>`
-  height: ${({rowConfig: {height}}) => height}px;
-  text-align: ${({rowConfig: {alignment}}) => alignment};
-  vertical-align: ${({rowConfig: {verticalAlign}}) => verticalAlign};
-  &:nth-child(even) { background-color: #f2f2f2; }
-  &:hover { 
-    background-color: #ddd;
-  }
-`;
-
-export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) => {
-
-  const [columnOrder, setColumnOrder] = useState<string[]>(columns);
-  const [draggedColumn, setDraggedColumn] = useState<string | null>(null);
-
+const TableComponent = <T extends ObjectType,>({
+  data, columns, rowConfig, width
+}: TTableProps<T>) => {
+  const [columnOrder, setColumnOrder] = useState<TColumns<T>>(columns);
+  const [draggedColumnId, setDraggedColumnId] = useState<string | null>(null);
 
   const tableRef = useRef<HTMLDivElement>(null);
   const isOutside = useRef<boolean>(false);
@@ -51,7 +24,7 @@ export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) =
       if (isOutside.current) {
         console.log('target on drop', target);
       } else {
-        columnOrder.length > 1 && setColumnOrder(cols => cols.filter(c => c !== draggedColumn))
+        columnOrder.length > 1 && setColumnOrder(cols => cols.filter(c => c.id !== draggedColumnId))
       }
     };
     const handleGlobalDragOver = (e: DragEvent) => {
@@ -70,7 +43,7 @@ export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) =
       window.removeEventListener('drop', handleDrop);
       window.addEventListener('dragover', handleGlobalDragOver);
     }
-  }, [draggedColumn, columnOrder]); //todo а может не надо columnOrder
+  }, [draggedColumnId, columnOrder]); //todo а может не надо columnOrder
 
 
 
@@ -78,7 +51,7 @@ export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) =
     return data.map((rowData, index) => {
       return <TableRow rowConfig={rowConfig} key={index}>
         {columnOrder.map(c => {
-          return <td key={columnOrder.indexOf(c)}>{rowData[c]}</td>
+          return <td key={columnOrder.indexOf(c)}>{rowData[c.dataField]}</td>
         })}
       </TableRow>
     })
@@ -87,12 +60,12 @@ export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) =
 
   const memoizedColumns = useMemo(() => {
     return columnOrder.map(col => <th
-      key={col}
+      key={col.id}
       draggable
-      onDragStart={() => setDraggedColumn(col)}
+      onDragStart={() => setDraggedColumnId(col.id)}
       className="draggable-header"
     >
-      {col}
+      {col.caption}
     </th>)
   }, [columnOrder]);
 
@@ -118,4 +91,7 @@ export const Table: FC<TTableProps> = memo(({rowConfig, width, data, columns}) =
       </div>
   </div>
   );
-})
+};
+
+export const Table = memo(TableComponent) as typeof TableComponent;
+
