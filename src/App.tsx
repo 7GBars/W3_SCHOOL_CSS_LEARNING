@@ -1,7 +1,10 @@
-import React, {useCallback, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import './App.css';
 import {Table} from "./components/Table";
 import { customers, type TCustomer } from "./__mocks__/customers";
+import {batchedFetch} from "./helpers/batching";
+import {fetchMock, Todo, urls} from "./__mocks__/batchedFetchs";
+
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -10,6 +13,13 @@ function App() {
     alignment: 'right',
     verticalAlign: 'middle',
   } as const);
+
+  useEffect(() => {
+    batchedFetch<Todo>(urls, fetchMock, 3)
+      .then((results) => console.log("Результаты:", results))
+      .catch((err) => console.error("Ошибка:", err));
+  }, []);
+
   return (
     <div className="App">
 
