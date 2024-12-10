@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import './App.css';
 import {Table} from "./components/Table";
-import { customers, type TCustomer } from "./__mocks__/customers";
+import {columns, customers, type TCustomer} from "./__mocks__/customers";
 import {batchedFetch} from "./helpers/batching";
 import {fetchMock, Todo, urls} from "./__mocks__/batchedFetchs";
 
@@ -20,18 +20,18 @@ function App() {
       .catch((err) => console.error("Ошибка:", err));
   }, []);
 
+  const savedTableData = useRef(customers).current;
+  const savedColumns = useRef(columns).current;
+
+
   return (
     <div className="App">
 
       <Table<TCustomer>
         width={'100%'}
         rowConfig={rowConfig.current}
-        data={customers}
-        columns={[
-          {id: 1, width: 100, caption: 'Город', dataField: 'City'},
-          {id: 2, width: 200, caption: 'Компания', dataField: 'CompanyName'},
-          {id: 3, width: 50, caption: 'Телефон', dataField: 'Phone'},
-        ]}
+        data={savedTableData}
+        columns={savedColumns}
       />
       <div>
         <button onClick={() => setCount(c=> ++c)}> + </button>

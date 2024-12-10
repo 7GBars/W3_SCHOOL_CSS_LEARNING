@@ -121,3 +121,9 @@ export const customers = [
   Fax: '(800) 445-6938',
 }];
 
+export const columns = [
+  {id: 1, width: 100, caption: 'Город', dataField: 'City'} as const,
+  {id: 2, width: 200, caption: 'Компания', dataField: 'CompanyName'} as const,
+  {id: 3, width: 50, caption: 'Телефон', dataField: 'Phone'} as const,
+]
+
