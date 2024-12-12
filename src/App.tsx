@@ -5,6 +5,9 @@ import {columns, customers, type TCustomer} from "./__mocks__/customers";
 import {batchedFetch} from "./helpers/batching";
 import {fetchMock, Todo, urls} from "./__mocks__/batchedFetchs";
 
+import {createMapper} from './CommonJSModules/automapper'
+
+
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -23,7 +26,7 @@ function App() {
   const savedTableData = useRef(customers).current;
   const savedColumns = useRef(columns).current;
 
-
+  const mapper = createMapper();
   return (
     <div className="App">
 
