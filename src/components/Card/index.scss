@@ -1,0 +1,17 @@
+.card {
+  height: max-content;
+  width: 400px; // todo передавать через компоненту ( подумать о styledComponents )
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .title {
+    color: #04AA6D;
+  }
+  .description {
+    font-style: italic;
+    margin: 0;
+  }
+}

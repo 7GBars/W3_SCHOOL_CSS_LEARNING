@@ -5,7 +5,8 @@ import {columns, customers, type TCustomer} from "./__mocks__/customers";
 import {batchedFetch} from "./helpers/batching";
 import {fetchMock, Todo, urls} from "./__mocks__/batchedFetchs";
 
-import {createMapper} from './CommonJSModules/automapper'
+
+import { Display } from "./units/display/display";
 
 
 
@@ -26,7 +27,6 @@ function App() {
   const savedTableData = useRef(customers).current;
   const savedColumns = useRef(columns).current;
 
-  const mapper = createMapper();
   return (
     <div className="App">
 
@@ -40,7 +40,7 @@ function App() {
         <button onClick={() => setCount(c=> ++c)}> + </button>
         <button onClick={() => setCount(c=> --c)}> - </button>
       </div>
-
+      <Display/>
     </div>
   );
 };
