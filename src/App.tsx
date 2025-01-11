@@ -1,46 +1,18 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React from 'react';
+
 import './App.css';
-import {Table} from "./components/Table";
-import {columns, customers, type TCustomer} from "./__mocks__/customers";
-import {batchedFetch} from "./helpers/batching";
-import {fetchMock, Todo, urls} from "./__mocks__/batchedFetchs";
-
-
-import { Display } from "./units/display/display";
-
+import {Card, CardsContainer} from "./components";
+import {units} from "./__mocks__";
 
 
 function App() {
-  const [count, setCount] = useState<number>(0);
-  const rowConfig = useRef({
-    height: 70,
-    alignment: 'right',
-    verticalAlign: 'middle',
-  } as const);
-
-  useEffect(() => {
-    batchedFetch<Todo>(urls, fetchMock, 3)
-      .then((results) => console.log("Результаты:", results))
-      .catch((err) => console.error("Ошибка:", err));
-  }, []);
-
-  const savedTableData = useRef(customers).current;
-  const savedColumns = useRef(columns).current;
-
+  const unitsCards = units.map((u) => <Card id={u.id} title={u.title} description={u.description}/>)
   return (
     <div className="App">
-
-      <Table<TCustomer>
-        width={'100%'}
-        rowConfig={rowConfig.current}
-        data={savedTableData}
-        columns={savedColumns}
-      />
-      <div>
-        <button onClick={() => setCount(c=> ++c)}> + </button>
-        <button onClick={() => setCount(c=> --c)}> - </button>
-      </div>
-      <Display/>
+      test
+      <CardsContainer>
+        {unitsCards}
+      </CardsContainer>
     </div>
   );
 };
