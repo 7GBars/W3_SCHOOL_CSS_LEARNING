@@ -1,3 +1,9 @@
+import {displayValues} from "./display";
+
+import {Display} from "../../units/display/display";
+import {Table} from "../../components/Table";
+import {Card} from "../../components";
+
 export * from './display';
 
 export const units = [
@@ -8,6 +14,15 @@ export const units = [
             Every HTML element has a default display value, depending on what type of element it is. The default display value for most elements is block or inline.
             The display property is used to change the default display behavior of HTML elements.`,
     path: '/display',
-    payload: 'display-page'
+    payload: displayValues,
+    component: Display
+  },
+  {
+    id: 'aas',
+    title: `Table`,
+    description: `Раздел Таблицы`,
+    path: '/table',
+    payload: displayValues,
+    component: Table
   }
 ]
