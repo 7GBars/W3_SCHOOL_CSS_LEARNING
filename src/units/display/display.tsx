@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
 
 import './index.scss';
 import { Card, CardsContainer } from "../../components";
@@ -10,8 +10,16 @@ export const Display: React.FC<TDisplayProps> = ({}) => {
   const cards =  displayValues.map(v => <Card id={v.title} title={v.title} description={v.description}/>)
   return (
     <CardsContainer>
-      {cards}
+      <ContentsContainer>
+        {cards}
+      </ContentsContainer>
     </CardsContainer>
   );
 }
 
+
+const ContentsContainer = ({children}: PropsWithChildren) => {
+  return <div className={'container--contents'}>
+    {children}
+  </div>
+}
