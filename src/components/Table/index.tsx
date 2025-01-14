@@ -48,9 +48,9 @@ const TableComponent = <T extends ObjectType,>({
 
 
   const memoizedRows = useMemo(() => {
-    return data.map((rowData, index) => {
+    return data?.map((rowData, index) => {
       return <TableRow rowConfig={rowConfig} key={index}>
-        {columnOrder.map(c => {
+        {columnOrder?.map(c => {
           return <td key={columnOrder.indexOf(c)}>{rowData[c.dataField]}</td>
         })}
       </TableRow>
@@ -59,7 +59,7 @@ const TableComponent = <T extends ObjectType,>({
 
 
   const memoizedColumns = useMemo(() => {
-    return columnOrder.map(col => <th
+    return columnOrder?.map(col => <th
       key={col.id}
       draggable
       onDragStart={() => setDraggedColumnId(col.id)}

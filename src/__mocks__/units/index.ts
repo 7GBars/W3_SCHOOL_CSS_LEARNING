@@ -3,10 +3,11 @@ import {displayValues} from "./display";
 import {Display} from "../../units/display/display";
 import {Table} from "../../components/Table";
 import {Card} from "../../components";
+import {Unit} from "../../models/view-model/units";
 
 export * from './display';
 
-export const units = [
+export const units: Unit[] = [
   {
     id: '1',
     title: `Display`,

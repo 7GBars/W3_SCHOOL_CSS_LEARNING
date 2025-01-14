@@ -5,17 +5,10 @@ import {Card, CardsContainer} from "./components";
 import {units} from "./__mocks__";
 
 import './App.css';
+import {useUnits} from "./hooks";
 
 function App() {
-  const unitsLinks = units.map((u) => (
-    <Link key={u.id} to={u.path}>
-    <Card id={u.id} title={u.title} description={u.description}/>
-  </Link>
-  ));
-
-  const unitsRoutes = units.map((u) => (
-    <Route path={u.path} Component={u.component as any} />
-  ))
+  const [unitsLinks, unitsRoutes] = useUnits(units);
 
   return (
     <div className="App">
