@@ -25,5 +25,13 @@ export const units: Unit[] = [
     path: '/table',
     payload: displayValues,
     component: Table
+  },
+  {
+    id: 'aa21s',
+    title: `Table2`,
+    description: `Второй тип таблицы`,
+    path: '/table',
+    payload: displayValues,
+    component: Table
   }
 ]
