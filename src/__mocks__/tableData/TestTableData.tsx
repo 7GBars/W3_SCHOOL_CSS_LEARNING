@@ -9,18 +9,23 @@ export const testColumns: IColumn<CompanyData>[] = [
     cellRender: (value, rowData) => <CompanyCellTemplate value={value}/>,
   },
   {
+    header: 'Country',
+    width: '130px',
+    dataField: 'country',
+  },
+  {
     header: 'Contact',
     dataField: 'contact',
-    width: '130px',
+
     cellRender: (value, row) => (
-      <span style={{ color: row.country === 'Germany' ? 'green' : 'inherit' }}>
+      <span style={{
+        color: row.country === 'Germany' ? 'green' : 'inherit',
+        display: 'inline-block',
+        padding: '15px'
+      }}>
           {value}
         </span>
     ), // Зеленый цвет для Germany
-  },
-  {
-    header: 'Country',
-    dataField: 'country',
   },
 ];
 
