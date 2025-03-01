@@ -1,10 +1,10 @@
-import {displayValues} from "./display";
+import {displayValues} from "../__mocks__/units/display";
 
-import {Display} from "../../units/display/display";
-import {Table} from "../../components/Table";
-import {Unit} from "../../models-view/units";
+import {Display} from "../units/display/display";
+import {Table} from "../components/Table";
+import {Unit} from "../models-view/units";
 
-export * from './display';
+export * from '../__mocks__/units/display';
 
 export const units: Unit[] = [
   {

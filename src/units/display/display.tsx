@@ -2,7 +2,7 @@ import React, {PropsWithChildren} from 'react';
 
 import './index.scss';
 import { Card, CardsContainer } from "../../components";
-import { displayValues } from "../../__mocks__";
+
 
 type TDisplayProps = {}
 
