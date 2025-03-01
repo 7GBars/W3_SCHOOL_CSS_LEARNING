@@ -11,7 +11,7 @@ export const testColumns: IColumn<CompanyData>[] = [
   {
     header: 'Contact',
     dataField: 'contact',
-    width: '100px',
+    width: '130px',
     cellRender: (value, row) => (
       <span style={{ color: row.country === 'Germany' ? 'green' : 'inherit' }}>
           {value}
@@ -21,8 +21,6 @@ export const testColumns: IColumn<CompanyData>[] = [
   {
     header: 'Country',
     dataField: 'country',
-    width: '100px',
-
   },
 ];
 
