@@ -3,23 +3,34 @@
 .table-container {
   overflow: auto;
   @include custom-scrollbar();
-  .table-data-component {
-    border-collapse: collapse;
-    border: 1px solid black;
-    width: 100%;
-    tr {
 
+  .table-data-component {
+    width: 100%;
+    table-layout: fixed; // Обязательно!
+    border-collapse: collapse;
+
+    tr {
+      border: none;
+    }
+    td, th {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 8px 12px;
     }
     th {
+
       text-align: left;
       font-family: Roboto;
       font-weight: 700;
       font-size: 11px;
       line-height: 12.89px;
       color: #999999;
+      border: none;
     }
     td {
       height: 70px;
+      border: none;
     }
 
   }

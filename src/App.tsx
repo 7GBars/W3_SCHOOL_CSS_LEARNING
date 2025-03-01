@@ -1,13 +1,13 @@
 import React from 'react';
 import {Link, Outlet, Route, Routes} from "react-router-dom";
 
-import {Card, CardsContainer} from "./components";
 import {units} from "./routes";
 
 import './App.css';
 import {useUnits} from "./hooks";
+
 import Table from "./components/Table2";
-import {columns, data} from "./components/Table2/tableData";
+import { testColumns, testData } from "./__mocks__";
 
 function App() {
   const [unitsLinks, unitsRoutes] = useUnits(units);
@@ -15,9 +15,10 @@ function App() {
   return (
     <div className="App">
       <Table
-        columns={columns}
-        data={data}
+        columns={testColumns}
+        data={testData}
         height={'500px'}
+
       />
       {/*<Routes>*/}
       {/*  /!* Основной маршрут (index) - по сути содержимое самого App если дальше ничего в path нет *!/*/}

@@ -1,16 +1,12 @@
 import {IColumn} from "../../models-view/table";
+import { CompanyCellTemplate } from "./templates";
 
-export const columns: IColumn<CompanyData>[] = [
+export const testColumns: IColumn<CompanyData>[] = [
   {
     header: 'Company',
     dataField: 'company',
-    width: '50px',
-    cellRender: (value, rowData) => <div className={'name'}>
-      <div className={'name__color'}></div>
-      <div className={'name__text'}>
-        {value}
-      </div>
-    </div>, // Жирный шрифт для названия компании
+    width: '430px',
+    cellRender: (value, rowData) => <CompanyCellTemplate value={value}/>,
   },
   {
     header: 'Contact',
@@ -30,7 +26,7 @@ export const columns: IColumn<CompanyData>[] = [
   },
 ];
 
-export const data: CompanyData[] = [
+export const testData: CompanyData[] = [
   { company: 'Alfreds Futterkiste', contact: 'Maria Anders', country: 'Germany' },
   { company: 'Berglunds snabbköp', contact: 'Christina Berglund', country: 'Sweden' },
   { company: 'Centro comercial Moctezuma', contact: 'Francisco Chang', country: 'Mexico' },

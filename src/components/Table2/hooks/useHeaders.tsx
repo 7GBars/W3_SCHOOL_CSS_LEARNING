@@ -6,5 +6,20 @@ export const useHeaders = <T,>(columns: IColumn<any>[]) => {
   const memoizedHeaders = useMemo(() => {
     return <HeaderRow columns={columns} />
   }, [columns]);
-  return {memoizedHeaders}
+  const memoizedColgroup = useMemo(() => {
+    return  <colgroup>
+      {columns.map((column) => (
+        <col
+          key={column.dataField as string}
+          style={{
+            width: column.width ?? 'auto',
+            minWidth: column.width ?? 'auto',
+            maxWidth: column.width ?? 'auto'
+          }}
+        />
+      ))}
+    </colgroup>
+  }, [columns]);
+
+  return { memoizedHeaders, memoizedColgroup }
 }

@@ -17,11 +17,12 @@ const Table = <T,>({ columns, data, height, className, style, id }: TableProps<T
 
   const cls = classNames('table-data-component', {}, [className]);
   const { memoizedRows } = useRows<T>(data, columns);
-  const { memoizedHeaders } = useHeaders<T>(columns);
+  const { memoizedHeaders , memoizedColgroup} = useHeaders<T>(columns);
 
   return (
     <div className={'table-container'} style={{height}}>
       <table id={id} className={cls} style={style}>
+        {memoizedColgroup}
         <thead>
           {memoizedHeaders}
         </thead>

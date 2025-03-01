@@ -1,11 +1,11 @@
-import {memo} from "react";
+import React, {memo, useMemo} from "react";
 import type {IColumn} from "../../../../models-view";
 
 export const HeaderColumnCell = memo((
   { column }: { column: IColumn<any> }
 ) => {
-  console.log('column' , column.width)
-  return <th style={{width: column.width}}>
+
+  return <th>
     {column.header.toUpperCase()}
   </th>
 });
