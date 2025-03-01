@@ -1,10 +1,22 @@
+$CompanyColorBlockWidth: 5px;
 .company-cell {
   display: flex;
   width: 100%;
-  .company-cell__color {
+  height: 100%;
 
+  box-sizing: border-box;
+
+  align-items: center;
+  gap: calc(15px - #{$CompanyColorBlockWidth});
+  .company-cell__color {
+    width: $CompanyColorBlockWidth;
+    height: 70px;
+    background-color: #04AA6D;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
   }
   .company-cell__text {
-
+    flex: 1;
+    font-weight: 500;
   }
 }
