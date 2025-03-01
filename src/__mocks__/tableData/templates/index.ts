@@ -1,1 +1,1 @@
-export * from './CeompanyCellTemplate'
+export * from './companyTemplate'
