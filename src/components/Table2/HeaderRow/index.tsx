@@ -1,7 +1,7 @@
 import React, {memo} from "react";
 
 import {IColumn} from "../../../models-view";
-import {HeaderColumnCell} from "./HeaderColumn";
+import {HeaderColumnCell} from "./HeaderColumnCell";
 
 export const HeaderRow = memo(({columns}: { columns: IColumn<any>[] }) => (
   <tr>
