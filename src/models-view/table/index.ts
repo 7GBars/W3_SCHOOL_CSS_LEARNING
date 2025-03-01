@@ -1,9 +1,11 @@
 import {ReactNode} from "react";
+import { UI } from '..'
 
-export interface Column<T> {
+export interface IColumn<T> {
   header: string;
-  accessor: keyof T;
+  dataField: keyof T;
   width?: string | number;
-  render?: (value: T[keyof T], row: T) => ReactNode; // Кастомный рендеринг
+  cellRender?: (value: T[keyof T], rowData: T) => ReactNode;
+  cellBaseOptions?: UI.IBase;
 }
 

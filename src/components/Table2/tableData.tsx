@@ -1,11 +1,11 @@
-import {Column} from "../../models-view/table";
+import {IColumn} from "../../models-view/table";
 
-export const columns: Column<CompanyData>[] = [
+export const columns: IColumn<CompanyData>[] = [
   {
     header: 'Company',
-    accessor: 'company',
-    width: '389px',
-    render: (value) => <div className={'name'}>
+    dataField: 'company',
+    width: '50px',
+    cellRender: (value, rowData) => <div className={'name'}>
       <div className={'name__color'}></div>
       <div className={'name__text'}>
         {value}
@@ -14,9 +14,9 @@ export const columns: Column<CompanyData>[] = [
   },
   {
     header: 'Contact',
-    accessor: 'contact',
+    dataField: 'contact',
     width: '100px',
-    render: (value, row) => (
+    cellRender: (value, row) => (
       <span style={{ color: row.country === 'Germany' ? 'green' : 'inherit' }}>
           {value}
         </span>
@@ -24,7 +24,7 @@ export const columns: Column<CompanyData>[] = [
   },
   {
     header: 'Country',
-    accessor: 'country',
+    dataField: 'country',
     width: '100px',
 
   },

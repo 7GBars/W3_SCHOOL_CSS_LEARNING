@@ -7,9 +7,9 @@ import './index.scss';
 
 
 const TableComponent = <T extends ObjectType,>({
-  data, columns, rowConfig, width
+  data, columns: defaultColumns, rowConfig, width
 }: TTableProps<T>) => {
-  const [columnOrder, setColumnOrder] = useState<TColumns<T>>(columns);
+  const [columns, setColumns] = useState<TColumns<T>>(defaultColumns);
   const [draggedColumnId, setDraggedColumnId] = useState<string | number | null>(null);
 
   const tableRef = useRef<HTMLDivElement>(null);
@@ -24,7 +24,7 @@ const TableComponent = <T extends ObjectType,>({
       if (isOutside.current) {
         console.log('target on drop', target);
       } else {
-        columnOrder.length > 1 && setColumnOrder(cols => cols.filter(c => c.id !== draggedColumnId))
+        columns.length > 1 && setColumns(cols => cols.filter(c => c.id !== draggedColumnId))
       }
     };
     const handleGlobalDragOver = (e: DragEvent) => {
@@ -43,23 +43,23 @@ const TableComponent = <T extends ObjectType,>({
       window.removeEventListener('drop', handleDrop);
       window.addEventListener('dragover', handleGlobalDragOver);
     }
-  }, [draggedColumnId, columnOrder]); //todo а может не надо columnOrder
+  }, [draggedColumnId, columns]); //todo а может не надо columnOrder
 
 
 
   const memoizedRows = useMemo(() => {
     return data?.map((rowData, index) => {
       return <TableRow rowConfig={rowConfig} key={index}>
-        {columnOrder?.map(c => {
-          return <td key={columnOrder.indexOf(c)}>{rowData[c.dataField]}</td>
+        {columns?.map(c => {
+          return <td key={columns.indexOf(c)}>{rowData[c.dataField]}</td>
         })}
       </TableRow>
     })
-  }, [data, columnOrder])
+  }, [data, columns])
 
 
   const memoizedColumns = useMemo(() => {
-    return columnOrder?.map(col => <th
+    return columns?.map(col => <th
       key={col.id}
       draggable
       onDragStart={() => setDraggedColumnId(col.id)}
@@ -67,7 +67,7 @@ const TableComponent = <T extends ObjectType,>({
     >
       {col.caption}
     </th>)
-  }, [columnOrder]);
+  }, [columns]);
 
   return ( <div ref={tableRef} className={`table-component`}>
       <div className={'table-container'}>
