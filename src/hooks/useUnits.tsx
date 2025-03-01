@@ -2,7 +2,8 @@ import React, {ReactElement} from "react";
 import {Link, Route} from "react-router-dom";
 
 import {Card} from "../components";
-import {Unit} from "../models";
+import {Unit} from "../models-view";
+
 
 
 export const useUnits = (units: Unit[]) => {

@@ -1,13 +1,17 @@
-import React, { ReactNode } from 'react';
+import React, {FC, PropsWithChildren, ReactNode} from 'react';
+import type { UI } from "../../../models-view";
 
-interface TableCellProps {
-  width?: string | number; // Ширина ячейки
-  children: ReactNode; // Контент ячейки
-  className?: string; // Дополнительные классы
-  style?: React.CSSProperties; // Дополнительные стили
-}
+type TableCellProps = PropsWithChildren<{
+  width?: string | number;
+  children: ReactNode;
+}> & UI.IBase;
 
-const TableCell = ({ width, children, className, style }: TableCellProps) => {
+const TableCell: FC<TableCellProps> = ({
+  width,
+  children,
+  className,
+  style
+}) => {
   return (
     <td
       style={{ width, ...style }}

@@ -1,4 +1,4 @@
-import {Column} from "../../models/view-model/table";
+import {Column} from "../../models-view/table";
 
 export const columns: Column<CompanyData>[] = [
   {
