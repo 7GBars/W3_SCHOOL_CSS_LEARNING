@@ -32,8 +32,7 @@ interface CompanyData {
   tests: Test[];
 }
 
-// Пример использования
-export const testColumns: CompanyData = {
+export const testData: CompanyData = {
   sites: [
     { id: 1, url: "https://market.company.com" },
     { id: 2, url: "https://www.delivery.company.com" },
