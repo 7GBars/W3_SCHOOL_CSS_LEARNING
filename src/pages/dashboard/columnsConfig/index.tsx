@@ -22,13 +22,7 @@ export const dashBoardColumnsConfig: IColumn<Issue>[] = [
     dataField: 'status',
     header: 'Статус',
     width: '170px',
-    cellRender: (value, {status}) => (
-      <div
-        className={'company-cell'}
-        style={{color: STATUS_COLORS[status as TestStatus] || 'gray'}}
-      >
-        {value}
-      </div>)
+    cellRender: (value, {status}) => <div style={{color: STATUS_COLORS[status as TestStatus] || 'gray'}}>{value}</div>
   },
   {
     dataField: 'status',
