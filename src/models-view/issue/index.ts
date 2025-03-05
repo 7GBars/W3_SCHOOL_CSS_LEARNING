@@ -43,8 +43,21 @@ export enum ESiteId {
   DELIVERY = 2,
   GAMES = 3
 }
+export enum EStatusColors {
+  PAUSED = "YELLOW",
+  DRAFT = "GRAY",
+  STOPPED = "RED",
+  ONLINE = "GREEN"
+}
 export const SITE_COLORS: { [key in ESiteId]: ESiteColor } = {
   [ESiteId.MARKET]: ESiteColor.MARKET,
   [ESiteId.DELIVERY]: ESiteColor.DELIVERY,
   [ESiteId.GAMES]: ESiteColor.GAMES,
 } // todo @bars - подумать куда вынести из models-view
+
+export const STATUS_COLORS: {[key in TestStatus ]: EStatusColors} = {
+  [TestStatus.DRAFT]: EStatusColors.DRAFT,
+  [TestStatus.ONLINE]: EStatusColors.ONLINE,
+  [TestStatus.PAUSED]: EStatusColors.PAUSED,
+  [TestStatus.STOPPED]: EStatusColors.STOPPED,
+}
