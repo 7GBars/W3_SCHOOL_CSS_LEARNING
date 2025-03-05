@@ -1,10 +1,10 @@
-import {type CompanyData, SiteColor, TestStatus, TestType} from "../../models-view";
+import {type CompanyData, ESiteColor, TestStatus, TestType} from "../../models-view";
 
 export const dashBoardData: CompanyData = {
   sites: [
-    { id: 1, url: "https://market.company.com", color: SiteColor.MARKET },
-    { id: 2, url: "https://www.delivery.company.com", color: SiteColor.DELIVERY },
-    { id: 3, url: "http://games.company.com", color: SiteColor.GAMES }
+    { id: 1, url: "https://market.company.com", color: ESiteColor.MARKET },
+    { id: 2, url: "https://www.delivery.company.com", color: ESiteColor.DELIVERY },
+    { id: 3, url: "http://games.company.com", color: ESiteColor.GAMES }
   ],
   issues: [
     { id: 1, name: "Prototype of the new map", type: TestType.CLASSIC, status: TestStatus.PAUSED, siteId: 2 },

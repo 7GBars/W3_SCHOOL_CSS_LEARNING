@@ -14,9 +14,9 @@ export enum TestStatus {
 
 // Определяем типы для объектов Site и test
 export interface Site {
-  id: SiteId;
+  id: ESiteId;
   url: string;
-  color: SiteColor;
+  color: ESiteColor;
 }
 
 export interface Issue {
@@ -33,13 +33,18 @@ export interface CompanyData {
   issues: Issue[];
 }
 
-export enum SiteColor {
+export enum ESiteColor {
   MARKET = "blue",
   DELIVERY = "green",
   GAMES = "red"
 }
-export enum SiteId {
+export enum ESiteId {
   MARKET = 1,
   DELIVERY = 2,
   GAMES = 3
 }
+export const SITE_COLORS: { [key in ESiteId]: ESiteColor } = {
+  [ESiteId.MARKET]: ESiteColor.MARKET,
+  [ESiteId.DELIVERY]: ESiteColor.DELIVERY,
+  [ESiteId.GAMES]: ESiteColor.GAMES,
+} // todo @bars - подумать куда вынести из models-view
