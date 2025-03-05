@@ -11,14 +11,15 @@ export const DashBoard: FC<TDashboardProps> = ({}) => {
   const [data, setData] = useState<CompanyData>(dashBoardData);
 
   const columns = useMemo<IColumn<Issue>[]>(() => {
-    return data.issues.map(test => {
-      return { dataField: 'name', width: '100px', header: 'Name' }
-    })
+    return [{
+      dataField: 'name',
+      header: 'Name'
+    }]
   }, [data]);
 
   return (
     <div className={'page_container'}>
-      <DashBoardTable data={data.issues} columns={columns} height={'200px'} />
+      <DashBoardTable<Issue> data={data.issues} columns={columns} height={'200px'} />
     </div>
   );
 }

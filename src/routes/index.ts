@@ -34,7 +34,15 @@ export const units: Unit[] = [
     title: `Dashboard`,
     description: `Второй тип таблицы`,
     path: '/dashboard',
-    payload: displayValues,
+    payload: null,
     component: DashBoard
+  },
+  {
+    id: uuidv4(),
+    title: `TestPage`,
+    description: `Тестовая страница`,
+    path: '/testPage',
+    payload: null,
+    component: PageTest
   }
 ]
