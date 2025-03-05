@@ -1,4 +1,4 @@
-import {IColumn} from "../../models-view/UI/table";
+import {IColumn} from "../../models-view/table";
 import { CompanyCellTemplate } from "./templates";
 
 export const testColumns: IColumn<CompanyData>[] = [
