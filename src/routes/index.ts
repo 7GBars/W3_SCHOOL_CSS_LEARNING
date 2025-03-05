@@ -1,36 +1,40 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import {displayValues} from "../__mocks__/units/display";
 
-import {Display} from "../units/display/display";
-import {Table} from "../components/Table";
-import {Unit} from "../models-view/units";
+import {
+  DashBoard, PageTest, DisplayPage, TablePage
+} from "../pages";
+
+import {Unit} from "../models-view";
 
 export * from '../__mocks__/units/display';
 
 export const units: Unit[] = [
   {
-    id: '1',
+    id: uuidv4(),
     title: `Display`,
     description: `The display property is used to specify how an element is shown on a web page.
             Every HTML element has a default display value, depending on what type of element it is. The default display value for most elements is block or inline.
             The display property is used to change the default display behavior of HTML elements.`,
     path: '/display',
     payload: displayValues,
-    component: Display
+    component: DisplayPage
   },
   {
-    id: 'aas',
+    id: uuidv4(),
     title: `Table`,
     description: `Раздел Таблицы`,
     path: '/table',
-    payload: displayValues,
-    component: Table
+    payload: null,
+    component: TablePage
   },
   {
-    id: 'aa21s',
-    title: `Table2`,
+    id: uuidv4(),
+    title: `Dashboard`,
     description: `Второй тип таблицы`,
-    path: '/table',
+    path: '/dashboard',
     payload: displayValues,
-    component: Table
+    component: DashBoard
   }
 ]

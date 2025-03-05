@@ -7,13 +7,13 @@ import { useRows, useHeaders} from "./hooks";
 import './index.scss'
 
 
-type TableProps<T> = {
+type DashBoardTableProps<T> = {
   columns: IColumn<T>[];
   data: T[];
   height: number | string;
 } & UI.IBase
 
-const Table = <T,>({ columns, data, height, className, style, id }: TableProps<T>) => {
+export const DashBoardTable = <T,>({ columns, data, height, className, style, id }: DashBoardTableProps<T>) => {
 
   const cls = classNames('table-data-component', {}, [className]);
   const { memoizedRows } = useRows<T>(data, columns);
@@ -34,5 +34,3 @@ const Table = <T,>({ columns, data, height, className, style, id }: TableProps<T
 
   );
 };
-
-export default Table;

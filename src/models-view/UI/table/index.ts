@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import { UI } from '..'
+import { UI } from '../../index'
 
 export interface IColumn<T> {
   header: string;

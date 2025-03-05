@@ -6,7 +6,7 @@ import type { TTableProps, ObjectType, TColumns } from "./types";
 import './index.scss';
 
 
-const TableComponent = <T extends ObjectType,>({
+export const TableComponent = <T extends ObjectType,>({
   data, columns: defaultColumns, rowConfig, width
 }: TTableProps<T>) => {
   const [columns, setColumns] = useState<TColumns<T>>(defaultColumns);

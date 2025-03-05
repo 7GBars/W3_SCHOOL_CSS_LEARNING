@@ -1,3 +1,4 @@
 export * from './units';
-export * from './table';
+export * from './issue';
+export * from './UI/table';
 export * as UI from './UI';
