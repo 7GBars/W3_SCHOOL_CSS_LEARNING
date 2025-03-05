@@ -13,9 +13,10 @@ export enum TestStatus {
 }
 
 // Определяем типы для объектов Site и test
-interface Site {
+export interface Site {
   id: number;
   url: string;
+  color: SiteColor;
 }
 
 export interface Issue {
@@ -30,4 +31,10 @@ export interface Issue {
 export interface CompanyData {
   sites: Site[];
   issues: Issue[];
+}
+
+export enum SiteColor {
+  MARKET = "blue",
+  DELIVERY = "green",
+  GAMES = "red"
 }
