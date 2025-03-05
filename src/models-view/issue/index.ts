@@ -14,7 +14,7 @@ export enum TestStatus {
 
 // Определяем типы для объектов Site и test
 export interface Site {
-  id: number;
+  id: SiteId;
   url: string;
   color: SiteColor;
 }
@@ -37,4 +37,9 @@ export enum SiteColor {
   MARKET = "blue",
   DELIVERY = "green",
   GAMES = "red"
+}
+export enum SiteId {
+  MARKET = 1,
+  DELIVERY = 2,
+  GAMES = 3
 }

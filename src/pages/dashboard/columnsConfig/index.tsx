@@ -6,7 +6,7 @@ export const dashBoardColumnsConfig: IColumn<Issue>[] = [
     dataField: 'name',
     header: 'Name',
     width: '400px',
-    cellRender: (value, rowData) => <CompanyCellTemplate value={value.toString()} />
+    cellRender: (value, rowData) => <CompanyCellTemplate value={value.toString()} issue={rowData} />
   },
   {
     dataField: 'type',
