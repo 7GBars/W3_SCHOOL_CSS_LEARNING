@@ -4,7 +4,7 @@ import {
   type TestStatus,
   STATUS_COLORS
 } from "../../../models-view";
-import {CompanyCellTemplate} from "./templates";
+import {CompanyCellTemplate, SiteCellTemplate} from "./templates";
 
 export const dashBoardColumnsConfig: IColumn<Issue>[] = [
   {
@@ -22,10 +22,11 @@ export const dashBoardColumnsConfig: IColumn<Issue>[] = [
     dataField: 'status',
     header: 'Статус',
     width: '170px',
-    cellRender: (value, {status}) => <div style={{color: STATUS_COLORS[status as TestStatus] || 'gray'}}>{value}</div>
+    cellRender: (value, {status}) => <div style={{ color: STATUS_COLORS[status as TestStatus] || 'gray', padding: '15px'}}>{value}</div>
   },
   {
     dataField: 'status',
     header: 'Сайт',
+    cellRender: (value, rowData) => <SiteCellTemplate value={value.toString()} issue={rowData} />
   }
 ]

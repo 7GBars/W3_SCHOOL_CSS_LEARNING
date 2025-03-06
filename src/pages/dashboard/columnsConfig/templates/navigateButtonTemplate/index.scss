@@ -1,0 +1,13 @@
+.site-cell {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  & .site-cell__text {
+    flex: 1;
+  }
+
+  & .site-cell__button {
+
+  }
+}
