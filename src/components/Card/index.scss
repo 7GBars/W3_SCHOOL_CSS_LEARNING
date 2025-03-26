@@ -5,12 +5,16 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 
   .title {
     color: #04AA6D;
   }
   .description {
+    vertical-align: middle;
+    text-align: center;
     font-style: italic;
     margin: 0;
   }

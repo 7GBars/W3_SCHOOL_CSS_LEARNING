@@ -6,7 +6,7 @@ type TDisplayPageProps = {};
 export const DisplayPage: FC<TDisplayPageProps> = ({}) => {
   return (
     <div className={'page_container'}>
-      <ContentsContainer />
+
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 
 import './index.scss';
-import A from '@/'
+
 import {GridContainer} from "./grid";
 
 
