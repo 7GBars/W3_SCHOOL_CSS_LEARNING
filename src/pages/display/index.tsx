@@ -1,25 +1,41 @@
 import React, {FC} from 'react'
-import {Link, Outlet} from 'react-router-dom';
+import {NavLink, Outlet} from 'react-router-dom';
 
 import {useRoutes} from "@/providers";
 
+import './index.scss';
+import {classNames} from "@/helpers";
+
+
 type TDisplayPageProps = {};
-
-
 
 export const DisplayPage: FC<TDisplayPageProps> = ({}) => {
   const { subRoutes } = useRoutes();
   debugger
   return (
-    <div className={'page_container'}>
-      {subRoutes.map((sub) => (
-        <Link key={sub.path} to={sub.path} style={{ marginRight: "10px" }}>
-          {sub.title || sub.path}
-        </Link>
-      ))}
-      <Outlet />
+    <div className={'display-page_container'}>
+      <div className={'links-container'}>
+        {subRoutes.map((sub) => (
+          <NavLink
+            key={sub.path}
+            to={sub.path}
+            className={({isActive}) => {
+              const cls = classNames('display-page-link', {
+                'display-page-link--active': isActive
+              }, [])
+              return cls;
+            }}
+          >
+            {sub.title || sub.path}
+          </NavLink>
+        ))}
+      </div>
+      <div className={'content-container'}>
+        <Outlet />
+      </div>
     </div>
   );
 };
 
 export * from './grid'
+export * from './displayContents'

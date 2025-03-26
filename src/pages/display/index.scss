@@ -1,0 +1,10 @@
+.links-container {
+  display: flex;
+  gap: 10px;
+}
+.display-page-link {
+  text-decoration: none;
+  &--active {
+    color: #04AA6D;
+  }
+}

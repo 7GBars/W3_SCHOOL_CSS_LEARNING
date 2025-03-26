@@ -1,15 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import {displayValues} from "../__mocks__/units/display";
-
 import {
   DashBoard, PageTest, DisplayPage, TablePage,
-  GridPage
-} from "../pages";
+  GridPage, DisplayContentsPage
+} from "@/pages";
 
-import {Unit} from "../models-view";
+import {Unit} from "@/models-view";
 
-
+import {displayValues} from "../__mocks__/units/display";
 export * from '../__mocks__/units/display';
 
 export const units: Unit[] = [ //todo @bars - произвести неймрефакторинг
@@ -31,6 +29,14 @@ export const units: Unit[] = [ //todo @bars - произвести неймре�
         path: '/display/grid',
         payload: {},
         component: GridPage,
+      },
+      {
+        id: uuidv4(),
+        title: `DisplayContents`,
+        description: `Заставляет контейнер исчезнуть, делая дочерние элементы дочерними элементами элемента следующего уровня в DOM.`,
+        path: '/display/displayContents',
+        payload: {},
+        component: DisplayContentsPage,
       }
     ]
   },

@@ -9,7 +9,7 @@ type TDisplayProps = {}
 
 export const ContentsContainer = ({children}: PropsWithChildren) => {
   return <div className={'container--contents'}>
-    {children} {/* todo @bars - понять как реализовать дополнительные подстраницы */}
+    {children}
     <GridContainer />
   </div>
 }
