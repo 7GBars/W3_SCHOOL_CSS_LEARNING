@@ -7,15 +7,14 @@ import {useUnits} from "./hooks";
 import {CardsContainer} from "./components";
 
 import './App.css';
+import {useRoutes} from "@/providers";
 
 
 
 function App() {
-  const [unitsLinks, unitsRoutes] = useUnits(units);
-
+  const { unitsLinks, unitsRoutes } = useRoutes();
   return (
     <div className="App">
-
       <Routes>
         {/* Основной маршрут (index) - по сути содержимое самого App если дальше ничего в path нет */}
         <Route

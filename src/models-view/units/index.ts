@@ -8,5 +8,5 @@ export type Unit<T = any>= {
   payload: any;
   component: FC<T>;
 
-  subRoutes?: Unit[]
+  subRoutes?: Unit[];
 };

@@ -2,9 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
-import './index.css';
+import {RoutesProvider} from "@/providers";
+import {units} from "@/routes";
+
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,9 +18,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/*" element={<App />} />
-    </Routes>
+    <RoutesProvider units={units}>
+      <Routes>
+        <Route path="/*" element={<App />} />
+      </Routes>
+    </RoutesProvider>
   </BrowserRouter>
 );
 
