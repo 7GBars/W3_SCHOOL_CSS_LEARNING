@@ -7,6 +7,7 @@ import {useUnits} from "./hooks";
 import {CardsContainer} from "./components";
 
 import './App.css';
+import {renderRoutes} from "./helpers/renderRoutes";
 
 
 function App() {

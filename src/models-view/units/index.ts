@@ -7,4 +7,6 @@ export type Unit<T = any>= {
   path: string;
   payload: any;
   component: FC<T>;
+
+  subRoutes?: Unit[]
 };

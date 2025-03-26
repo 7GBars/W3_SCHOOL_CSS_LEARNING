@@ -3,14 +3,16 @@ import { v4 as uuidv4 } from 'uuid';
 import {displayValues} from "../__mocks__/units/display";
 
 import {
-  DashBoard, PageTest, DisplayPage, TablePage
+  DashBoard, PageTest, DisplayPage, TablePage,
+  GridPage
 } from "../pages";
 
 import {Unit} from "../models-view";
 
+
 export * from '../__mocks__/units/display';
 
-export const units: Unit[] = [
+export const units: Unit[] = [ //todo @bars - произвести неймрефакторинг
   {
     id: uuidv4(),
     title: `Display`,
@@ -19,7 +21,18 @@ export const units: Unit[] = [
             The display property is used to change the default display behavior of HTML elements.`,
     path: '/display',
     payload: displayValues,
-    component: DisplayPage
+    component: DisplayPage,
+
+    subRoutes: [
+      {
+        id: uuidv4(),
+        title: `Grid`,
+        description: `Displays an element as a block-level grid container`,
+        path: '/display/grid',
+        payload: {},
+        component: GridPage,
+      }
+    ]
   },
   {
     id: uuidv4(),
