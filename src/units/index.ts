@@ -1,1 +1,3 @@
-export * from './display'
+export {
+  Grid
+} from './display';
