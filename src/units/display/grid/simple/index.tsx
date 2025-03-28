@@ -14,4 +14,6 @@ export const GridContainer: FC<TGridContainerProps> = ({}) => {
       <div>5</div>
     </div>
   );
-}
+};
+
+GridContainer.displayName = 'GridContainer'
