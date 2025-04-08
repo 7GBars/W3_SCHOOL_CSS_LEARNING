@@ -8,7 +8,7 @@ type TFlexContainerBigTextProps = {};
 export const FlexContainerBigText: FC<TFlexContainerBigTextProps> = ({}) => {
 
   return (
-    <div className={'flex-container'}>
+    <div className={'flex-container_big-text'}>
       <div className="flex_container__element command-bar">
         <div className={'command-bar_item'}>
           <GButton className={'button_overflow'} textOption={{caption: 'Test data sssLorem  saaaaaaaaaaaa saaaaaaas s asaaaaaaa aaipsum dolor sisaaaaaaaaat ametam qui', isVisible: true}}/>

@@ -1,37 +1,28 @@
-.flex-container {
-  height: 70px;
-  width: 100%;
-  display: flex;
-  overflow: hidden;
-  .command-bar {
-    background-color: #fefc4f;
-    height: 100%;
-    flex: 1;
-    display: flex;
-    gap: 20px;
-    overflow: hidden;
-    .command-bar_item {
-      height: 40px;
-      background-color: #888888;
-      flex: 0 1 auto;
+$commandBarWidth: 100px;
 
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      .button_overflow {
-        width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-    }
-  }
-  .tool-bar {
-    height: 100%;
-    display: flex;
-    gap: 20px
+.flex-container {
+  width: calc(100% - #{$commandBarWidth});
+  &_direction-column {
+    flex-direction: column;
   }
 }
+.commands-bar {
+  position: fixed; /* Фиксированное позиционирование [[3]] */
+  top: 0;
+  right: 0; /* Позиционируем справа (можно изменить на left: 0) */
+  width: $commandBarWidth;
+  height: 100vh; /* Высота экрана */
+  overflow: auto; /* Прокрутка при необходимости */
+  padding: 20px; /* Отступы (опционально) */
+  background-color: #333; /* Цвет для визуализации [[3]] */
+
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
 
 
 
