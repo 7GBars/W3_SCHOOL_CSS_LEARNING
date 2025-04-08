@@ -10,6 +10,7 @@ type TFlexPageProps = {};
 
 const units = [
   { name: 'FlexContainer', component: Flex.FlexContainer },
+  { name: 'FlexBigText', component: Flex.FlexContainerBigText },
 
 ] as const;
 

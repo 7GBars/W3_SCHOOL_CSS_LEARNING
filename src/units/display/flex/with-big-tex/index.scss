@@ -1,0 +1,38 @@
+.flex-container {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  .command-bar {
+    background-color: #fefc4f;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    .command-bar_item {
+      height: 40px;
+      background-color: #888888;
+      flex: 0 1 auto;
+      max-width: 550px;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      .button_overflow {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  .tool-bar {
+    height: 100%;
+    display: flex;
+    gap: 20px
+  }
+}
+
+
+
