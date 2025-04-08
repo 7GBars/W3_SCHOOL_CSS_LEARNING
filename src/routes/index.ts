@@ -8,6 +8,7 @@ import {
 import {Unit} from "@/models-view";
 
 import {displayValues} from "../__mocks__/units/display";
+import { FlexPage } from "@/pages/display/flex";
 export * from '../__mocks__/units/display';
 
 export const units: Unit[] = [ //todo @bars - произвести неймрефакторинг
@@ -29,6 +30,14 @@ export const units: Unit[] = [ //todo @bars - произвести неймре�
         path: '/display/grid',
         payload: {},
         component: GridPage,
+      },
+      {
+        id: uuidv4(),
+        title: `Flex`,
+        description: `Displays an element as a block-level flex container`,
+        path: '/display/flex',
+        payload: {},
+        component: FlexPage,
       },
       {
         id: uuidv4(),

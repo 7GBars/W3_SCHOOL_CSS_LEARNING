@@ -1,3 +1,3 @@
 export {
-  Grid
+  Grid, Flex
 } from './display';
