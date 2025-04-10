@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import {
+  FontsPage,
   DashBoard, PageTest, DisplayPage, TablePage,
-  GridPage, DisplayContentsPage
+  GridPage, DisplayContentsPage,
 } from "@/pages";
 
 import {Unit} from "@/models-view";
@@ -72,5 +73,13 @@ export const units: Unit[] = [ //todo @bars - произвести неймре�
     path: '/testPage',
     payload: null,
     component: PageTest
+  },
+  {
+    id: uuidv4(),
+    title: `FontsPage`,
+    description: `Раздел шрифты`,
+    path: '/fonts',
+    payload: null,
+    component: FontsPage
   }
 ]

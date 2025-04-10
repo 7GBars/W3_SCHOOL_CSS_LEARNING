@@ -8,7 +8,7 @@ type TPageTestProps = {};
 
 export const PageTest: FC<TPageTestProps> = ({}) => {
   return (
-    <div className={'page_container'}>
+    <div className={'page-container'}>
       <Banner/>
     </div>
   );

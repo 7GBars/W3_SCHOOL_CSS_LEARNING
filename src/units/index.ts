@@ -1,3 +1,5 @@
+export * from './fonts';
+
 export {
-  Grid, Flex
+  Grid, Flex,
 } from './display';
