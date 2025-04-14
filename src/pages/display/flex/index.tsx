@@ -11,7 +11,6 @@ type TFlexPageProps = {};
 const units = [
   { name: 'FlexContainer', component: Flex.FlexContainer },
   { name: 'FlexBigText', component: Flex.FlexContainerBigText },
-
 ] as const;
 
 type TUnitsNames = typeof units[number]['name'];

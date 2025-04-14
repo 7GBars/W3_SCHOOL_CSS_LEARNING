@@ -1,11 +1,21 @@
-$commandBarWidth: 100px;
+$commandBarWidth: 280px;
 
 .flex-container {
+  display: flex;
   width: calc(100% - #{$commandBarWidth});
   &_direction-column {
     flex-direction: column;
   }
+  &_wrap-mode-wrapped {
+    flex-wrap: wrap;
+  }
+
+  .flex-container_item {
+    width: 300px;
+  }
 }
+
+
 .commands-bar {
   position: fixed; /* Фиксированное позиционирование [[3]] */
   top: 0;
@@ -16,10 +26,10 @@ $commandBarWidth: 100px;
   padding: 20px; /* Отступы (опционально) */
   background-color: #333; /* Цвет для визуализации [[3]] */
 
-
   display: flex;
   flex-direction: column;
   gap: 10px;
+  box-sizing: border-box;
 }
 
 
