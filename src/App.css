@@ -5,3 +5,26 @@
   box-sizing: border-box;
   background-color: #f1f1f1;
 }
+
+.pane-content {
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+}
+
+.pane-control {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pane-control button {
+  margin-left: 10px;
+}
+
+.ctrl-pane-content {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
