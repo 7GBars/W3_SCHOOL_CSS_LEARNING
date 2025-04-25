@@ -1,13 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import {
+  FontsPage,
   DashBoard, PageTest, DisplayPage, TablePage,
-  GridPage, DisplayContentsPage
+  GridPage, DisplayContentsPage,
 } from "@/pages";
 
 import {Unit} from "@/models-view";
 
 import {displayValues} from "../__mocks__/units/display";
+import { FlexPage } from "@/pages/display/flex";
 export * from '../__mocks__/units/display';
 
 export const units: Unit[] = [ //todo @bars - произвести неймрефакторинг
@@ -29,6 +31,14 @@ export const units: Unit[] = [ //todo @bars - произвести неймре�
         path: '/display/grid',
         payload: {},
         component: GridPage,
+      },
+      {
+        id: uuidv4(),
+        title: `Flex`,
+        description: `Displays an element as a block-level flex container`,
+        path: '/display/flex',
+        payload: {},
+        component: FlexPage,
       },
       {
         id: uuidv4(),
@@ -63,5 +73,13 @@ export const units: Unit[] = [ //todo @bars - произвести неймре�
     path: '/testPage',
     payload: null,
     component: PageTest
+  },
+  {
+    id: uuidv4(),
+    title: `FontsPage`,
+    description: `Раздел шрифты`,
+    path: '/fonts',
+    payload: null,
+    component: FontsPage
   }
 ]

@@ -11,7 +11,7 @@ type TDisplayPageProps = {};
 
 export const DisplayPage: FC<TDisplayPageProps> = ({}) => {
   const { subRoutes } = useRoutes();
-  debugger
+
   return (
     <div className={'display-page_container'}>
       <div className={'links-container'}>

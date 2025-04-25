@@ -1,0 +1,9 @@
+.font-properties {
+  display: flex;
+  flex-direction: column;
+
+  .font-properties_font-family {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+}

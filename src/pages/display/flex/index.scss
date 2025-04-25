@@ -1,0 +1,10 @@
+.flex-page-container {
+  display: flex;
+  flex-direction: column;
+  .flex-page-container__buttons {
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    gap: 1rem;
+  }
+}
