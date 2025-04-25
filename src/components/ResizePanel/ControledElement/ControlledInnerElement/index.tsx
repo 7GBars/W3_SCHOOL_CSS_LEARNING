@@ -2,7 +2,7 @@ import {forwardRef, useImperativeHandle, useRef, useState} from "react";
 import {ReflexElement} from "react-reflex";
 import type {PaneConfig} from "../../types";
 
-const MIN_SIZE = 25;
+const MIN_SIZE = 100;
 const MAX_SIZE = 400;
 const STEP = 8;
 
