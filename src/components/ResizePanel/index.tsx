@@ -1,79 +1,53 @@
+// SimplifiedControlsDemo.tsx
 import React, {
   useState,
   useRef,
-  useEffect,
   forwardRef,
   useImperativeHandle
-} from 'react'
+} from 'react';
+
+
 import {
   ReflexContainer,
   ReflexElement,
-  ReflexSplitter
+  ReflexSplitter,
+  PosNeg
 } from 'react-reflex'
-import 'react-reflex/styles.css'
+import 'react-reflex/styles.css';
 
-const MIN_SIZE = 25
-const MAX_SIZE = 400
-const STEP = 8
 
-const useAnimatedSize = (initial: number) => {
-  const [size, setSize] = useState(initial)
-  const ref = useRef<number>()
+import {PaneConfig} from "./types";
+import {ControlledElementWrapper} from "@/components/ResizePanel/ControledElement";
 
-  const animateTo = (target: number) => {
-    const animate = () => {
-      setSize(prev => {
-        const next = prev + Math.sign(target - prev) * STEP
-        if (Math.abs(next - target) <= STEP) {
-          cancelAnimationFrame(ref.current!)
-          return target
-        }
-        ref.current = requestAnimationFrame(animate)
-        return next
-      })
+
+export const ResizePanelDemo1: React.FC = () => {
+  const orientation = 'vertical';
+  const [panes, setPanes] = useState<Record<string, PaneConfig>>({
+    pane1: {
+      id: 'pane1',
+      name: 'Pane 1',
+      direction: 1,
+      minSize: 25,
+    },
+    pane2: {
+      id: 'pane22',
+      name: 'Pane 2',
+      direction: -1,
+      minSize: 25,
     }
-    ref.current = requestAnimationFrame(animate)
-  }
-
-  useEffect(() => () => cancelAnimationFrame(ref.current!), [])
-
-  return [size, animateTo] as const
-}
-
-
-
-export const AnimatedPanels: React.FC = () => {
-  const [size, animateTo] = useAnimatedSize(200)
-  const [expanded, setExpanded] = useState(true)
-
-  const toggle = () => {
-    animateTo(expanded ? MIN_SIZE : MAX_SIZE)
-    setExpanded(!expanded)
-  }
+  })
 
 
   return (
     <ReflexContainer
-      orientation="horizontal"
-      style={{ height: '100vh', width: '100vw' }}
+      orientation={orientation}
+      style={{ height: '100vh' }}
     >
-      <ReflexElement size={size} minSize={MIN_SIZE}>
-        <div style={{ padding: 10 }}>
-          <button onClick={toggle}>
-            {expanded ? 'Сжать' : 'Расширить'}
-          </button>
-          <div style={{ marginTop: 10 }}>фыфы</div>
-        </div>
-      </ReflexElement>
-      <ReflexSplitter />
-      <ReflexElement size={size} minSize={MIN_SIZE}>
-        <div style={{ padding: 10 }}>
-          <button onClick={toggle}>
-            {expanded ? 'Сжать' : 'Расширить'}
-          </button>
-          <div style={{ marginTop: 10 }}>ыф</div>
-        </div>
-      </ReflexElement>
+      <ControlledElementWrapper {...panes.pane1}/>
+
+      <ReflexSplitter propagate={true}/>
+
+      <ControlledElementWrapper {...panes.pane2}/>
     </ReflexContainer>
   )
 }
