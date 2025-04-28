@@ -9,9 +9,7 @@ import React, {
 
 import {
   ReflexContainer,
-  ReflexElement,
   ReflexSplitter,
-  PosNeg
 } from 'react-reflex'
 import 'react-reflex/styles.css';
 
@@ -44,7 +42,7 @@ export const ResizePanelDemo1: React.FC = () => {
       style={{ height: '100vh' }}
     >
       <ControlledInnerElement {...panes.pane1}/>
-      <ReflexSplitter propagate={true}/>
+      <ReflexSplitter />
       <ControlledInnerElement {...panes.pane2}/>
 
     </ReflexContainer>
