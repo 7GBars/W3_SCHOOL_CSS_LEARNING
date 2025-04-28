@@ -16,8 +16,8 @@ import {
 import 'react-reflex/styles.css';
 
 
-import {PaneConfig} from "./types";
-import {ControlledElementWrapper} from "@/components/ResizePanel/ControledElement";
+import type {PaneConfig} from "./types";
+import {ControlledInnerElement} from "./ControledElement";
 
 
 export const ResizePanelDemo1: React.FC = () => {
@@ -43,11 +43,10 @@ export const ResizePanelDemo1: React.FC = () => {
       orientation={orientation}
       style={{ height: '100vh' }}
     >
-      <ControlledElementWrapper {...panes.pane1}/>
-
+      <ControlledInnerElement {...panes.pane1}/>
       <ReflexSplitter propagate={true}/>
+      <ControlledInnerElement {...panes.pane2}/>
 
-      <ControlledElementWrapper {...panes.pane2}/>
     </ReflexContainer>
   )
 }
