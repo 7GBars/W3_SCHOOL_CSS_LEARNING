@@ -19,21 +19,21 @@ function App() {
   const { unitsLinks, unitsRoutes } = useRoutes();
   return (
     <div className="App">
-      <ResizePanelDemo1 />
-      {/*<Routes>*/}
-      {/*  /!* Основной маршрут (index) - по сути содержимое самого App если дальше ничего в path нет *!/*/}
-      {/*  <Route*/}
-      {/*    key={uuid()}*/}
-      {/*    index*/}
-      {/*    element={*/}
-      {/*      <CardsContainer>*/}
-      {/*        {unitsLinks}*/}
-      {/*      </CardsContainer>*/}
-      {/*    }*/}
-      {/*  />*/}
-      {/*  {unitsRoutes}*/}
-      {/*  <Route path="*" element={<>NO PAGE 404</>} />*/}
-      {/*</Routes>*/}
+
+      <Routes>
+        {/* Основной маршрут (index) - по сути содержимое самого App если дальше ничего в path нет */}
+        <Route
+          key={uuid()}
+          index
+          element={
+            <CardsContainer>
+              {unitsLinks}
+            </CardsContainer>
+          }
+        />
+        {unitsRoutes}
+        <Route path="*" element={<>NO PAGE 404</>} />
+      </Routes>
     </div>
   );
 }

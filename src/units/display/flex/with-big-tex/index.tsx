@@ -16,10 +16,6 @@ export const FlexContainerBigText: FC<TFlexContainerBigTextProps> = ({}) => {
         <div className={'command-bar_item'}>Test Test data Lorem ipsum dolor sing elit. Eaque explicabo labor </div>
         <div className={'command-bar_item'}>Test data</div>
       </div>
-      <div className="flex_container__element tool-bar">
-
-        <div>Test</div>
-      </div>
     </div>
   );
 };
