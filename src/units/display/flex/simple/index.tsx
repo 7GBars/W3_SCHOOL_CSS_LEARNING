@@ -60,7 +60,7 @@ export const FlexContainer: FC<TFlexContainerProps> = ({}) => {
   return (
     <div className={'flex-example-simple'}>
       <ReflexContainer orientation={'vertical'} className={'resize-panel'}>
-        <ReflexElement>
+        <ReflexElement flex={0.8}>
           <StyledFlexContainer
             className={`flex-container`}
             direction={flexDirection}
@@ -78,6 +78,7 @@ export const FlexContainer: FC<TFlexContainerProps> = ({}) => {
         <ReflexElement className={'commands-bar'}>
           <GButton textOption={{caption: 'Change direction', isVisible: true}} onClick={changeDirectionHandler}/>
           <GSelectBox
+            className={'flex-options-box'}
             textOption={{caption: 'Change flex-wrap mode'}}
             labelExpr={'mode'}
             keyExpr={'id'}
@@ -85,17 +86,19 @@ export const FlexContainer: FC<TFlexContainerProps> = ({}) => {
             onValueChange={changeWrapMode}
           />
           <GSelectBox<{ size: number, id: number }>
-            textOption={{caption: 'Change flex-wrap mode'}}
+            className={'flex-options-box'}
+            textOption={{caption: 'Change element width'}}
             labelExpr={'size'}
             keyExpr={'id'}
             options={[{size: 50, id: 1}, {size: 100, id: 2}, {size: 350, id: 3}]}
             onValueChange={changeElementsWidth}
           />
           <GSelectBox<{ size: [number, number], id: number, title: string }>
-            textOption={{caption: 'Change flex-wrap mode'}}
-            labelExpr={'size'}
+            className={'flex-options-box'}
+            textOption={{caption: 'Change gap'}}
+            labelExpr={'title'}
             keyExpr={'id'}
-            options={[{size: [20, 0], id: 1, title: 'Only row gap'}, {size: [0, 20], id: 2, title: 'Only column gap'}, {size: [50, 50], id: 3, title: 'Gap 50px'}]}
+            options={[{size: [0, 20], id: 1, title: 'Only column gap'}, {size: [20, 0], id: 2, title: 'Only row gap'}, {size: [50, 50], id: 3, title: 'Gap 50px'}]}
             onValueChange={changeContainerGapSize}
           />
         </ReflexElement>

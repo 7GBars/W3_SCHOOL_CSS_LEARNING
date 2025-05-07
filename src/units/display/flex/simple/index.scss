@@ -17,10 +17,13 @@
 .commands-bar {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   box-sizing: border-box;
 
   background-color: #333;
+  .flex-options-box {
+    color: #999999;
+  }
 }
 
 
