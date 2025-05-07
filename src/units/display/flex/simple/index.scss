@@ -4,23 +4,9 @@ $commandBarWidth: 280px;
   width: calc(100% - #{$commandBarWidth});
 }
 .flex-container {
-  display: flex;
-  justify-content: start;
-  column-gap: 50px;
-  row-gap: 20px;
-
-
-
   background-color: rgba(27, 78, 127, 0.6);
   overflow: auto;
 
-
-  &_direction-column {
-    flex-direction: column;
-  }
-  &_wrap-mode-wrapped {
-    flex-wrap: wrap;
-  }
 
   .flex-container_item {
     background-color: #04AA6D;
