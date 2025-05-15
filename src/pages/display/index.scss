@@ -1,10 +1,25 @@
-.links-container {
+.display-page_container {
+  height: 100%;
   display: flex;
-  gap: 10px;
-}
-.display-page-link {
-  text-decoration: none;
-  &--active {
-    color: #04AA6D;
+  flex-direction: column;
+
+  .links-container {
+    height: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    flex: 0;
+    .display-page-link {
+      text-decoration: none;
+      &--active {
+        color: #04AA6D;
+      }
+    }
+  }
+  .content-container {
+    height: 100%;
+    flex: 1;
   }
 }
+

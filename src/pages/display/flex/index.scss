@@ -1,10 +1,15 @@
 .flex-page-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   .flex-page-container__buttons {
-    height: 40px;
     padding: 10px;
+    box-sizing: border-box;
+
     display: flex;
     gap: 1rem;
+  }
+  .flex-page-container__example-block {
+    flex: 1 1 500px;
   }
 }
