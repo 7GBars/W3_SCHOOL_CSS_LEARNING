@@ -9,13 +9,14 @@
   align-items: center;
   gap: 10px;
 
-  .title {
+  .card__title {
     color: #04AA6D;
   }
-  .description {
+  .card__description {
     vertical-align: middle;
     text-align: center;
     font-style: italic;
     margin: 0;
+    cursor: auto;
   }
 }
