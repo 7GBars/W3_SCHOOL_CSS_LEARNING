@@ -21,7 +21,7 @@ export const useUnits = (units: Unit[]) => {
   units.forEach((u) => {
     unitsLinks.push(
       <Link key={u.id} to={u.path}>
-        <Card id={u.id} title={u.title} description={u.description} />
+        <Card id={u.id} title={u.title} description={u.description} icon={u.icon} />
       </Link>
     );
   });

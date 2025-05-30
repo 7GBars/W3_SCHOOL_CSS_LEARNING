@@ -4,6 +4,9 @@
   justify-items: center;
   gap: 20px;
 
+  a {
+    text-decoration: none;
+  }
   @media (max-width: 1200px) { // todo завязать к ширине карты
     & {
       grid-template-columns: repeat(2, 1fr);

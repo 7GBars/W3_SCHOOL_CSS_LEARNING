@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import {faBorderAll} from "@fortawesome/free-solid-svg-icons";
 
 import {
   FontsPage,
@@ -7,9 +8,10 @@ import {
 } from "@/pages";
 
 import {Unit} from "@/models-view";
+import { FlexPage } from "@/pages/display/flex";
 
 import {displayValues} from "../__mocks__/units/display";
-import { FlexPage } from "@/pages/display/flex";
+
 export * from '../__mocks__/units/display';
 
 export const units: Unit[] = [ //todo @bars - произвести неймрефакторинг
@@ -22,7 +24,7 @@ export const units: Unit[] = [ //todo @bars - произвести неймре�
     path: '/display',
     payload: displayValues,
     component: DisplayPage,
-
+    icon: faBorderAll,
     subRoutes: [
       {
         id: uuidv4(),

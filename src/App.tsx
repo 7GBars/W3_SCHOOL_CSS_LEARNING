@@ -11,10 +11,6 @@ import {useRoutes} from "@/providers";
 import {ResizePanelDemo1} from "@/components/ResizePanel";
 
 
-
-
-
-
 function App() {
   const { unitsLinks, unitsRoutes } = useRoutes();
   return (

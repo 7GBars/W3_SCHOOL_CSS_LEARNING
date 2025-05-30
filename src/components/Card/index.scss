@@ -9,8 +9,15 @@
   align-items: center;
   gap: 10px;
 
-  .card__title {
-    color: #04AA6D;
+  .card__title-wrapper {
+    display: flex;
+    gap: var(--g-rem);
+    .title-wrapper__icon {}
+
+    .title-wrapper__text {
+      color: #04AA6D;
+      text-decoration: none;
+    }
   }
   .card__description {
     vertical-align: middle;
