@@ -14,20 +14,16 @@ type TCardProps = {
 }
 
 export const Card: React.FC<TCardProps> = ({ id, title, description, icon }) => {
-  const handleCopyTitle = (e: any) => {
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    navigator.clipboard.writeText(title).catch((err) => {
-      alert('Не удалось скопировать текст');
-      console.error(err);
-    });
-    debugger
-  };
+
   return (
     <>
       <div id={id} className={'card'}>
-        <div className="card__title-wrapper" onClick={handleCopyTitle}>
-         <span onClick={handleCopyTitle}> <i className="fa-solid fa-face-smile"></i> {title}</span>
+        <div className="card__title-wrapper"  onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          navigator.clipboard.writeText(title);
+        }}>
+         <span> <i className="fa-solid fa-face-smile"></i> {title}</span>
         </div>
         <p
           className={'card__description'}
