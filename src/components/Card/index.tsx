@@ -15,20 +15,21 @@ type TCardProps = {
 }
 
 export const Card: React.FC<TCardProps> = ({ id, title, description, icon }) => {
-  const [showToast, setShowToast] = useState(false);
+
   return (
     <>
       <div id={id} className={'card'}>
-        <div className="card__title-wrapper"  onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          navigator.clipboard.writeText(title)
-            .then((text) => {
-              setShowToast(true)
-            });
-        }}>
-         <span> <i className="fa-solid fa-face-smile"></i> {title}</span>
-        </div>
+        {/*<div className="card__title-wrapper"  onClick={(e) => {*/}
+        {/*  e.preventDefault();*/}
+        {/*  e.stopPropagation();*/}
+        {/*  navigator.clipboard.writeText(title)*/}
+        {/*    .then((text) => {*/}
+        {/*      setShowToast(true)*/}
+        {/*    });*/}
+        {/*}}>*/}
+        {/* <span> <i className="fa-solid fa-face-smile"></i> {title}</span>*/}
+        {/*</div>*/}
+
         <p
           className={'card__description'}
           onMouseUp={() => {
@@ -42,13 +43,6 @@ export const Card: React.FC<TCardProps> = ({ id, title, description, icon }) => 
           }}
         > {description} </p>
       </div>
-      {/* Всплывающее уведомление */}
-      {showToast && (
-        <Toast
-          message="Текст скопирован!"
-          onClose={() => setShowToast(false)}
-        />
-      )}
     </>
   );
 }
