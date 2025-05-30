@@ -5,3 +5,4 @@ export * from './Table2';
 export * from './Banner';
 export * from './Button';
 export * from './SelectBox';
+export * from './Toast';
